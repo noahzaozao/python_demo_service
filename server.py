@@ -15,9 +15,9 @@ class DemoService(demo_pb2_grpc.DemoServiceServicer):
     def __init__(self):
         pass
 
-    def CreateOne(self, request, context):
+    def ApiCreate(self, request, context):
 
-        print("C_2_S CreateOne: >>>>> ", request)
+        print("C_2_S ApiCreate: >>>>> ", request)
 
         response = demo_pb2.ResponseData(
             return_code=0,
@@ -25,13 +25,13 @@ class DemoService(demo_pb2_grpc.DemoServiceServicer):
             data=""
         )
 
-        print("S_2_C CreateOne: <<<<< ", response)
+        print("S_2_C ApiCreate: <<<<< ", response)
 
         return response
 
-    def DeleteOne(self, request, context):
+    def ApiList(self, request, context):
 
-        print("C_2_S DeleteOne: >>>>> ", request)
+        print("C_2_S ApiList: >>>>> ", request)
 
         response = demo_pb2.ResponseData(
             return_code=0,
@@ -39,13 +39,13 @@ class DemoService(demo_pb2_grpc.DemoServiceServicer):
             data=""
         )
 
-        print("S_2_C DeleteOne: <<<<< ", response)
+        print("S_2_C ApiList: <<<<< ", response)
 
         return response
 
-    def TransferOne(self, request, context):
+    def ApiUpdate(self, request, context):
 
-        print("C_2_S TransferOne: >>>>> ", request)
+        print("C_2_S ApiUpdate: >>>>> ", request)
 
         response = demo_pb2.ResponseData(
             return_code=0,
@@ -53,13 +53,13 @@ class DemoService(demo_pb2_grpc.DemoServiceServicer):
             data=""
         )
 
-        print("S_2_C TransferOne: <<<<< ", response)
+        print("S_2_C ApiUpdate: <<<<< ", response)
 
         return response
 
-    def GetCreateNotify(self, request, context):
+    def ApiDelete(self, request, context):
 
-        print("C_2_S GetCreateNotify: >>>>> ", request)
+        print("C_2_S ApiDelete: >>>>> ", request)
 
         response = demo_pb2.ResponseData(
             return_code=0,
@@ -67,7 +67,7 @@ class DemoService(demo_pb2_grpc.DemoServiceServicer):
             data=""
         )
 
-        print("S_2_C GetCreateNotify: <<<<< ", response)
+        print("S_2_C ApiDelete: <<<<< ", response)
 
         return response
 
@@ -75,10 +75,10 @@ class DemoService(demo_pb2_grpc.DemoServiceServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     demo_pb2_grpc.add_DemoServiceServicer_to_server(DemoService(), server)
-    server.add_insecure_port('[::]:9090')
+    server.add_insecure_port('[::]:9000')
     server.start()
 
-    print("listen: 9090")
+    print("listen: 9000")
 
     try:
         while True:

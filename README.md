@@ -1,31 +1,24 @@
-# python_demo_service
+# python_grpc_demo
 
-### PreRequirements
-
-- pyenv installed
-- python 3.6.7
-
-### Install Dependent Packages
-
-```
-pyenv activate env_grpc_demo
-pip install --no-cache-dir -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+##
+```bash
+source venv/bin/activate
 ```
 
-### Gen demo.proto to python grpc code
+## Gen demo.proto to python grpc code
 
-```
+```bash
 ./build.sh
 ```
 
-### Run Server
+## Run Server
 
-```
+```bash
 python server.py
 ```
 
-### Run Client
+## Run Client
 
-```
+```bash
 python client.py
 ```

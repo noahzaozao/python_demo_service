@@ -14,9 +14,9 @@ message ResponseData {
 
 service DemoService {
 
-    rpc CreateOne(RequestData) returns (ResponseData) {}
-    rpc DeleteOne(RequestData) returns (ResponseData) {}
-    rpc TransferOne(RequestData) returns (ResponseData) {}
-    rpc GetCreateNotify(RequestData) returns (ResponseData) {}
+    rpc ApiCreate(RequestData) returns (ResponseData) {}
+    rpc ApiUpdate(RequestData) returns (ResponseData) {}
+    rpc ApiList(RequestData) returns (ResponseData) {}
+    rpc ApiDelete(RequestData) returns (ResponseData) {}
 
 }

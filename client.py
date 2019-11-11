@@ -7,27 +7,26 @@ import demo_pb2_grpc
 
 
 def run():
-    with grpc.insecure_channel('127.0.0.1:9090') as channel:
+    with grpc.insecure_channel('127.0.0.1:9000') as channel:
         client = demo_pb2_grpc.DemoServiceStub(channel)
 
-        response = client.CreateOne(demo_pb2.RequestData(
-            data="call create one from client",
+        response = client.ApiCreate(demo_pb2.RequestData(
+            data="call ApiCreate from client",
         ))
         print(response.return_code, response.message, response.data)
 
-
-        response = client.DeleteOne(demo_pb2.RequestData(
-            data="call delete one from client",
+        response = client.ApiList(demo_pb2.RequestData(
+            data="call ApiList from client",
         ))
         print(response.return_code, response.message, response.data)
 
-        response = client.TransferOne(demo_pb2.RequestData(
-            data="call get transfer one from client",
+        response = client.ApiUpdate(demo_pb2.RequestData(
+            data="call ApiUpdate from client",
         ))
         print(response.return_code, response.message, response.data)
 
-        response = client.GetCreateNotify(demo_pb2.RequestData(
-            data="call create one from client",
+        response = client.ApiDelete(demo_pb2.RequestData(
+            data="call ApiDelete from client",
         ))
         print(response.return_code, response.message, response.data)
 

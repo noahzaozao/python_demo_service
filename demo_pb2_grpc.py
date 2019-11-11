@@ -14,23 +14,23 @@ class DemoServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.CreateOne = channel.unary_unary(
-        '/demo.DemoService/CreateOne',
+    self.ApiCreate = channel.unary_unary(
+        '/demo.DemoService/ApiCreate',
         request_serializer=demo__pb2.RequestData.SerializeToString,
         response_deserializer=demo__pb2.ResponseData.FromString,
         )
-    self.DeleteOne = channel.unary_unary(
-        '/demo.DemoService/DeleteOne',
+    self.ApiUpdate = channel.unary_unary(
+        '/demo.DemoService/ApiUpdate',
         request_serializer=demo__pb2.RequestData.SerializeToString,
         response_deserializer=demo__pb2.ResponseData.FromString,
         )
-    self.TransferOne = channel.unary_unary(
-        '/demo.DemoService/TransferOne',
+    self.ApiList = channel.unary_unary(
+        '/demo.DemoService/ApiList',
         request_serializer=demo__pb2.RequestData.SerializeToString,
         response_deserializer=demo__pb2.ResponseData.FromString,
         )
-    self.GetCreateNotify = channel.unary_unary(
-        '/demo.DemoService/GetCreateNotify',
+    self.ApiDelete = channel.unary_unary(
+        '/demo.DemoService/ApiDelete',
         request_serializer=demo__pb2.RequestData.SerializeToString,
         response_deserializer=demo__pb2.ResponseData.FromString,
         )
@@ -40,28 +40,28 @@ class DemoServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def CreateOne(self, request, context):
+  def ApiCreate(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def DeleteOne(self, request, context):
+  def ApiUpdate(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def TransferOne(self, request, context):
+  def ApiList(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def GetCreateNotify(self, request, context):
+  def ApiDelete(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -71,23 +71,23 @@ class DemoServiceServicer(object):
 
 def add_DemoServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'CreateOne': grpc.unary_unary_rpc_method_handler(
-          servicer.CreateOne,
+      'ApiCreate': grpc.unary_unary_rpc_method_handler(
+          servicer.ApiCreate,
           request_deserializer=demo__pb2.RequestData.FromString,
           response_serializer=demo__pb2.ResponseData.SerializeToString,
       ),
-      'DeleteOne': grpc.unary_unary_rpc_method_handler(
-          servicer.DeleteOne,
+      'ApiUpdate': grpc.unary_unary_rpc_method_handler(
+          servicer.ApiUpdate,
           request_deserializer=demo__pb2.RequestData.FromString,
           response_serializer=demo__pb2.ResponseData.SerializeToString,
       ),
-      'TransferOne': grpc.unary_unary_rpc_method_handler(
-          servicer.TransferOne,
+      'ApiList': grpc.unary_unary_rpc_method_handler(
+          servicer.ApiList,
           request_deserializer=demo__pb2.RequestData.FromString,
           response_serializer=demo__pb2.ResponseData.SerializeToString,
       ),
-      'GetCreateNotify': grpc.unary_unary_rpc_method_handler(
-          servicer.GetCreateNotify,
+      'ApiDelete': grpc.unary_unary_rpc_method_handler(
+          servicer.ApiDelete,
           request_deserializer=demo__pb2.RequestData.FromString,
           response_serializer=demo__pb2.ResponseData.SerializeToString,
       ),
